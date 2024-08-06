@@ -11,9 +11,9 @@
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
         <div class="container mt-5">
-            <h1 class="mb-4">Product Management</h1>
+            <h1 class="mb-4">Product Management Test</h1>
         
-            <!-- Form -->
+            
             <form id="productForm">
                 <div class="form-group">
                     <label for="name">Product Name</label>
@@ -27,7 +27,7 @@
                     <label for="price">Price per Item</label>
                     <input type="number" step="0.01" class="form-control" id="price" name="price" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Create Product</button>
             </form>
 
             <div></div>
@@ -46,8 +46,8 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
+                     <!-- Data will be populated here by JavaScript -->
                     <tbody id="productList">
-                        <!-- Data will be populated here by JavaScript -->
                     </tbody>
                 </table>
             </div>
@@ -59,9 +59,9 @@
 
         <script>
             $(document).ready(function() {
-                let editingProductId = null; // Track the product being edited
+                let editingProductId = null; // Help to track the product being edited
             
-                // Set the CSRF token in the AJAX request headers
+                // Set CSRF token in the AJAX request headers
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -117,7 +117,7 @@
                         </tr>
                     `);
             
-                    // Attach click event to edit buttons
+                    // Attach click event to edit buttons needed more time...to debug
                     $('.editBtn').click(function() {
                         const productId = $(this).data('id');
                         const product = products.find(p => p.id === productId);
